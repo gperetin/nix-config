@@ -18,6 +18,8 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+    "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
+    ./disk-config.nix
   ];
 
   # Bootloader.
@@ -107,7 +109,7 @@
 
   programs.zsh = {
     enable = true;
-  }
+  };
 
   users.users = {
     goran = {
