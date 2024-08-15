@@ -85,7 +85,9 @@
         lightdm.enable = true;
         defaultSession = "none+i3";
       };
-      windowManager.i3.enable = true;
+      windowManager.i3 = {
+        enable = true;
+      };
     };
   };
 
@@ -109,6 +111,12 @@
 
   programs.zsh = {
     enable = true;
+  };
+
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = [ "goran" ];
   };
 
   users.users = {
