@@ -65,6 +65,7 @@
   systemd.user.startServices = "sd-switch";
 
   programs.alacritty.enable = true;
+  programs.rofi.enable = true;
 
   services.polybar.enable = true;
   services.polybar.script = "${inputs.dotfiles}/.config/polybar/launch.sh";
@@ -74,6 +75,8 @@
   xdg.configFile."alacritty/alacritty.toml".source = "${inputs.dotfiles}/.config/alacritty/alacritty.toml.laptop";
   home.file.".Xmodmap".source = "${inputs.dotfiles}/.Xmodmap";
   # home.file.".xinitrc".source = "${inputs.dotfiles}/.xinitrc";
+  home.file.".gitconfig".source = "${inputs.dotfiles}/.gitconfig";
+  home.file.".githelpers".source = "${inputs.dotfiles}/.githelpers";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersio
   home.stateVersion = "23.05";
