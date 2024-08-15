@@ -40,8 +40,8 @@
 
   # TODO: Set your username
   home = {
-    username = "your-username";
-    homeDirectory = "/home/your-username";
+    username = "goran";
+    homeDirectory = "/home/goran";
   };
 
   # Add stuff for your user as you see fit:
@@ -51,10 +51,30 @@
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
+  programs.firefox.enable = true;
+
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+    Host *
+      IdentityAgent ~/.1password/agent.sock
+    '';
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  programs.alacritty.enable = true;
+
+  services.polybar.enable = true;
+  services.polybar.script = "${inputs.dotfiles}/.config/polybar/launch.sh";
+  services.polybar.config = "${inputs.dotfiles}/.config/polybar/config-laptop";
+
+  xdg.configFile."i3/config".source = "${inputs.dotfiles}/.config/i3/config-laptop";
+  xdg.configFile."alacritty/alacritty.toml".source = "${inputs.dotfiles}/.config/alacritty/alacritty.toml.laptop";
+  home.file.".Xmodmap".source = "${inputs.dotfiles}/.Xmodmap";
+  # home.file.".xinitrc".source = "${inputs.dotfiles}/.xinitrc";
+
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersio
   home.stateVersion = "23.05";
 }
