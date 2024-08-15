@@ -77,6 +77,13 @@
   # home.file.".xinitrc".source = "${inputs.dotfiles}/.xinitrc";
   home.file.".gitconfig".source = "${inputs.dotfiles}/.gitconfig";
   home.file.".githelpers".source = "${inputs.dotfiles}/.githelpers";
+  home.file.".xprofile".text = ''
+  xset r rate 220 50
+  xset -b
+  xmodmap ~/.Xmodmap &
+  xcape -e 'Control_L=Escape' &
+  xbindkeys
+  '';
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersio
   home.stateVersion = "23.05";
