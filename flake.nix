@@ -3,10 +3,11 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # dotfiles
@@ -19,6 +20,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     ...
   } @ inputs: let
@@ -30,8 +32,14 @@
       # FIXME replace with your hostname
       minipc = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        # > Our main nixos configuration file <
         modules = [./nixos/minipc/configuration.nix];
+      };
+      desktop = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+          pkgs-unstable = import nixpkgs-unstable { system = "x86_64-linux"; config.allowUnfree = true; };
+        };
+        modules = [./nixos/desktop/configuration.nix];
       };
     };
 
