@@ -84,21 +84,14 @@
       zoom-us
       pkgs-unstable.obsidian
       tigervnc
-      gparted
       nodePackages.pyright
       xclip
       pkgs-unstable.dbeaver-bin
-      google-chrome
       vscode-fhs
       sqlite
-      slack
       delta
-      obs-studio
-      vlc
-      awscli2
-      gh-dash
+      vc
       devenv
-      via
       jq
       bat
     ];
@@ -230,7 +223,7 @@
 
   environment.systemPackages = with pkgs; [
    zsh
-   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+   vim
    wget
    btop
    python3
