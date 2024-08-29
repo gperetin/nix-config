@@ -23,3 +23,10 @@ This is the process I go through when doing a fresh install of NixOS using this 
     home-manager switch --flake .#username@hostname
     ```
 7. Reboot
+
+
+## Updating
+
+To force the flake to fetch updates for a single input (I use this for dotfiles repo):
+
+    nix flake lock --update-input dotfiles
