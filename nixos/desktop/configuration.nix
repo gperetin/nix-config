@@ -89,7 +89,6 @@
       pkgs-unstable.dbeaver-bin
       vscode-fhs
       sqlite
-      delta
       vc
       devenv
       jq

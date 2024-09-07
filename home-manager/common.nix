@@ -65,6 +65,8 @@
   };
   xdg.configFile."starship.toml".source = "${inputs.dotfiles}/config/starship.toml";
 
+  programs.git.delta.enable = true;
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
