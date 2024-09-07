@@ -14,7 +14,14 @@
     ./common.nix
   ];
 
-  services.polybar.config = "${inputs.dotfiles}/.config/polybar/config-laptop";
+  services.polybar.config = "${inputs.dotfiles}/.config/polybar/config-t14s-gen4";
+
+  systemd.user.services.polybar = {
+    # This is here so that the PATH is passed to the Polybar script
+    Service.Environment = lib.mkForce "";
+    Service.PassEnvironment = "PATH";
+  };
+
   xdg.configFile = {
     "i3/config".source = "${inputs.dotfiles}/.config/i3/config-laptop";
     "alacritty/alacritty.toml".source = "${inputs.dotfiles}/.config/alacritty/alacritty.toml.laptop";
