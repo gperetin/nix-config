@@ -185,6 +185,7 @@
     direnv
     xcape
     xorg.xmodmap
+    xorg.xbacklight
     scrot
     lsd
   ];
