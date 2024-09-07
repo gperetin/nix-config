@@ -44,7 +44,7 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+  home.packages = with pkgs; [ killall ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
@@ -59,6 +59,12 @@
     '';
   };
 
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+  xdg.configFile."starship.toml".source = "${inputs.dotfiles}/config/starship.toml";
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
@@ -69,6 +75,7 @@
   services.polybar.script = "${inputs.dotfiles}/.config/polybar/launch.sh";
   # services.polybar.config = "${inputs.dotfiles}/.config/polybar/config-laptop";
 
+  home.file.".zshrc".source = "${inputs.dotfiles}/.zshrc";
   # xdg.configFile."i3/config".source = "${inputs.dotfiles}/.config/i3/config-laptop";
   # xdg.configFile."alacritty/alacritty.toml".source = "${inputs.dotfiles}/.config/alacritty/alacritty.toml.laptop";
   home.file.".Xmodmap".source = "${inputs.dotfiles}/.Xmodmap";
