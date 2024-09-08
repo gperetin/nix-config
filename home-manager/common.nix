@@ -44,7 +44,7 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ killall ];
+  home.packages = with pkgs; [ killall gcc ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
@@ -63,7 +63,10 @@
     enable = true;
     enableZshIntegration = true;
   };
-  xdg.configFile."starship.toml".source = "${inputs.dotfiles}/config/starship.toml";
+  xdg.configFile."starship.toml".source = "${inputs.dotfiles}/.config/starship.toml";
+
+  xdg.configFile."nvim/lua/".source = "${inputs.dotfiles}/.config/nvim/lua/";
+  xdg.configFile."nvim/init.lua".source = "${inputs.dotfiles}/.config/nvim/init.lua";
 
   programs.git.delta.enable = true;
 
