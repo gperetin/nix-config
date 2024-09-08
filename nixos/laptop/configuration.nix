@@ -26,6 +26,14 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.kernelParams = [
+    # "acpi_backlight=native"
+
+    "amd_pstate=guided"
+
+    "amdgpu"
+  ];
 
   nixpkgs = {
     # You can add overlays here
@@ -185,9 +193,11 @@
     direnv
     xcape
     xorg.xmodmap
-    xorg.xbacklight
+    brightnessctl
     scrot
     lsd
+    libinput
+    pulseaudio  # for pactl
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

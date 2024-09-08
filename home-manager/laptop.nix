@@ -20,6 +20,7 @@
     # This is here so that the PATH is passed to the Polybar script
     Service.Environment = lib.mkForce "";
     Service.PassEnvironment = "PATH";
+    Install.WantedBy = [ "graphical-session.target" ];
   };
 
   xdg.configFile = {
