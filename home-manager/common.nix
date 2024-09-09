@@ -76,6 +76,13 @@
   programs.alacritty.enable = true;
   programs.rofi.enable = true;
 
+  services.redshift = {
+    enable = true;
+    temperature.night = 3200;
+    longitude = 45.8;
+    latitude = 15.99;
+  };
+
   services.polybar = {
     enable = true;
     package = pkgs.polybar.override {
