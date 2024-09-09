@@ -88,7 +88,7 @@
   services = {
     displayManager = {
       defaultSession = "none+i3";
-    };	
+    };
     xserver = {
       enable = true;
       displayManager = {
@@ -168,6 +168,19 @@
   };
 
   services.tailscale.enable = true;
+
+  services.syncthing = {
+    enable = true;
+    user = "goran";
+    dataDir = "${config.users.users.goran.home}";
+    settings.devices = {
+      old-laptop.name = "old-laptop";
+      old-laptop.id = "CIPBYY7-YJFRLSY-BRVIYEY-HSIUZZP-RZFSI52-B2TOJSA-GYPP46B-FEXNHAK";
+      t14s-gen4.name = "t14s-gen4";
+      t14s-gen4.id = "TWH3SXF-YZHLPNO-2RFIALK-RC7HIQD-ZJRV5ZO-J4CTHM4-365NA6S-AKEJLAR";
+    };
+  };
+
 
   programs.fzf = {
     keybindings = true;
