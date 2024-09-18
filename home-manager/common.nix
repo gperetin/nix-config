@@ -44,7 +44,12 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ killall gcc ];
+  home.packages = with pkgs; [
+    killall
+    gcc
+    gnumake # To compile fzf-native for neovim
+    pyright
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

@@ -94,6 +94,7 @@
       displayManager = {
         lightdm.enable = true;
       };
+      videoDrivers = [ "amdgpu "];
       xkb = {
         variant = "";
         layout = "us";
