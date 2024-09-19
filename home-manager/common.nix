@@ -49,6 +49,7 @@
     gcc
     gnumake # To compile fzf-native for neovim
     pyright
+    uv
   ];
 
   # Enable home-manager and git
