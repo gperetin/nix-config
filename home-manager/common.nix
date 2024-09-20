@@ -3,6 +3,7 @@
   lib,
   config,
   pkgs,
+  pkgs-unstable,
   ...
 }: {
   # You can import other home-manager modules here
@@ -49,7 +50,7 @@
     gcc
     gnumake # To compile fzf-native for neovim
     pyright
-    uv
+    pkgs-unstable.uv
   ];
 
   # Enable home-manager and git
