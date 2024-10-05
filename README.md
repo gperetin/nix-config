@@ -25,6 +25,13 @@ This is the process I go through when doing a fresh install of NixOS using this 
 7. Reboot
 
 
+## Updating the config
+
+Host config: `sudo nixos-rebuild switch --flake .#desktop` (replace "desktop" with the hostname)
+
+Home manager: `home-manager switch --flake .#goran@desktop`
+
+
 ## Updating
 
 To force the flake to fetch updates for a single input (I use this for dotfiles repo):
