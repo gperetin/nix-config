@@ -51,6 +51,7 @@
     gnumake # To compile fzf-native for neovim
     pyright
     pkgs-unstable.uv
+    pkgs-unstable.quarto
   ];
 
   # Enable home-manager and git
