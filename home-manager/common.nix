@@ -52,6 +52,7 @@
     pyright
     pkgs-unstable.uv
     pkgs-unstable.quarto
+    tigervnc
   ];
 
   # Enable home-manager and git
