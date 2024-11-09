@@ -21,6 +21,8 @@
     ./hardware-configuration.nix
     "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
     ./disk-config.nix
+    ../../modules/nixos/gui.nix
+    ../../modules/nixos/cli.nix
   ];
 
   # Bootloader.
@@ -72,6 +74,7 @@
     # Opinionated: make flake registry and nix path match flake inputs
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+    settings.trusted-users = [ "root" "goran" ];
   };
 
   networking.hostName = "minipc";
@@ -153,6 +156,7 @@
         pkgs-unstable.polybar-pulseaudio-control
         devenv
         pkgs-unstable.dbeaver-bin
+        vscode-fhs
       ];
     };
   };
@@ -199,19 +203,9 @@
 
   environment.systemPackages = with pkgs; [
     git
-    vim
-    wget
-    btop
     python3
-    ripgrep
-    fzf
     alacritty
-    direnv
-    xcape
-    xorg.xmodmap
     brightnessctl
-    scrot
-    lsd
     libinput
     pulseaudio  # for pactl
   ];
