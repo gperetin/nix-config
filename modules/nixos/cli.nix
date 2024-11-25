@@ -23,6 +23,10 @@
       bat
       fd
       jq
+      cloc
+      unzip
+      scrot
+      ranger
     ];
   };
 }

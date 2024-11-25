@@ -55,7 +55,8 @@
   };
 
   # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
+  programs.neovim.enable = true;
+
   home.packages = with pkgs; [
     killall
     gcc
@@ -65,6 +66,8 @@
     pkgs-unstable.quarto
     tigervnc
     zed-fhs
+    sqlite
+    devenv
   ];
 
   # Enable home-manager and git

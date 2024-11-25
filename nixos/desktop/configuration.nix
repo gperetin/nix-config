@@ -10,15 +10,14 @@
 }: {
   # You can import other NixOS modules here
   imports = [
-    # If you want to use modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+
+    ../../modules/nixos/cli.nix
+    ../../modules/nixos/gui.nix
   ];
 
   nixpkgs = {
@@ -75,26 +74,10 @@
     extraGroups = [ "networkmanager" "wheel" "audio" "libvirtd" "plugdev"];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      firefox
-      neovim
-      discord
-      redshift
-      rofi
-      polybarFull
-      pkgs-unstable.polybar-pulseaudio-control # For volume controls in Polybar
       virt-manager
       zoom-us
-      pkgs-unstable.obsidian
-      tigervnc
       nodePackages.pyright
-      xclip
-      pkgs-unstable.dbeaver-bin
       vscode-fhs
-      sqlite
-      vc
-      devenv
-      jq
-      bat
     ];
   };
 
@@ -223,21 +206,11 @@
   ];
 
   environment.systemPackages = with pkgs; [
-   zsh
-   vim
-   wget
-   btop
    python3
-   ripgrep
-   fzf
-   alacritty
    git
    starship
    arandr
-   direnv
    pulseaudio-ctl
-   xcape
-   xorg.xmodmap
    lm_sensors
    spice
    spice-gtk
@@ -245,14 +218,10 @@
    virt-viewer
    pulseaudio
    vdpauinfo
-   scrot
    killall
    gnumake
    gcc
-   unzip
    zlib
-   lsd
-   cloc
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

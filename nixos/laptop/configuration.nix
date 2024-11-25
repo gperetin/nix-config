@@ -150,12 +150,6 @@
       extraGroups = ["wheel" "networkmanager" "audio"];
       shell = pkgs.zsh;
       packages = with pkgs; [
-        neovim
-        xclip
-        polybarFull
-        pkgs-unstable.polybar-pulseaudio-control
-        devenv
-        pkgs-unstable.dbeaver-bin
         vscode-fhs
       ];
     };

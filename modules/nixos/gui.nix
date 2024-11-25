@@ -11,8 +11,14 @@
 
   users.users.goran = {
     packages = with pkgs; [
+      alacritty
       pkgs-unstable.obsidian
       pkgs-unstable.dbeaver-bin
+      rofi
+      discord
+      polybarFull
+      pkgs-unstable.polybar-pulseaudio-control
+      xfce.thunar
     ];
   };
 }
