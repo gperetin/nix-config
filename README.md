@@ -17,12 +17,13 @@ This is the process I go through when doing a fresh install of NixOS using this 
 
     `nixos-generate-config --no-filesystems --root /mnt`
 5. Use the newly generated `hardware-configuration.nix` if there isn't one in the repo for the host we're provisioning.
-6. Install from flake
+6. Make sure the `secrets` repo is checked out at `~/Code/secrets`
+7. Install from flake
     ```
     sudo nixos-install --flake .#hostname --impure
     home-manager switch --flake .#username@hostname
     ```
-7. Reboot
+8. Reboot
 
 
 ## Updating the config
@@ -37,3 +38,7 @@ Home manager: `home-manager switch --flake .#goran@desktop`
 To force the flake to fetch updates for a single input (I use this for dotfiles repo):
 
     nix flake lock --update-input dotfiles
+
+To update all the package definitions:
+
+    nix flake update

@@ -5,7 +5,18 @@
   pkgs,
   pkgs-unstable,
   ...
-}: {
+}:
+  let
+    zed-fhs = pkgs.buildFHSUserEnv {
+      name = "zed";
+      targetPkgs = pkgs:
+        with pkgs-unstable; [
+          zed-editor
+        ];
+      runScript = "zeditor";
+    };
+  in
+  {
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -53,6 +64,7 @@
     pkgs-unstable.uv
     pkgs-unstable.quarto
     tigervnc
+    zed-fhs
   ];
 
   # Enable home-manager and git
@@ -62,11 +74,16 @@
 
   programs.ssh = {
     enable = true;
-    extraConfig = ''
-    Host *
-      IdentityAgent ~/.1password/agent.sock
-    '';
+    # extraConfig = ''
+    # Host *
+    #   IdentityAgent ~/.1password/agent.sock
+    # '';
   };
+
+  # This requires the secrets repo to be checked out at ~/Code/secrets
+  # I used to use `extraConfig` passed to programs.ssh, but the permissions
+  # on the symlink there broke Zed editor remote ssh feature
+  home.file.".ssh/config".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Code/secrets/sshconfig";
 
   programs.starship = {
     enable = true;
