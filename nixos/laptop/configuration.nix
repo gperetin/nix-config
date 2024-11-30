@@ -182,6 +182,9 @@
     };
   };
 
+  services.libinput.touchpad.disableWhileTyping = true;
+  systemd.network.wait-online.enable = false;
+
 
   programs.fzf = {
     keybindings = true;
