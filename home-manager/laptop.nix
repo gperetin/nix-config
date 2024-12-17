@@ -16,12 +16,12 @@
 
   services.polybar.config = "${inputs.dotfiles}/.config/polybar/config-t14s-gen4";
 
-  systemd.user.services.polybar = {
-    # This is here so that the PATH is passed to the Polybar script
-    Service.Environment = lib.mkForce "";
-    Service.PassEnvironment = "PATH";
-    Install.WantedBy = [ "graphical-session.target" ];
-  };
+  # systemd.user.services.polybar = {
+  #   # This is here so that the PATH is passed to the Polybar script
+  #   Service.Environment = lib.mkForce "";
+  #   Service.PassEnvironment = "PATH";
+  #   # Install.WantedBy = [ "graphical-session.target" ];
+  # };
 
   xdg.configFile = {
     "i3/config".source = "${inputs.dotfiles}/.config/i3/config-laptop";
