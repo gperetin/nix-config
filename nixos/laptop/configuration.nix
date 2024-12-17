@@ -111,6 +111,9 @@
   # Enable sound with pipewire.
   sound.enable = true;
 
+  # ZSA keyboard
+  hardware.keyboard.zsa.enable = true;
+
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
@@ -205,6 +208,7 @@
     brightnessctl
     libinput
     pulseaudio  # for pactl
+    keymapp
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
