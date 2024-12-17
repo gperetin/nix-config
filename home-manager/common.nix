@@ -63,6 +63,7 @@
     gnumake # To compile fzf-native for neovim
     pyright
     pkgs-unstable.uv
+    pkgs-unstable.ruff
     pkgs-unstable.quarto
     tigervnc
     zed-fhs
