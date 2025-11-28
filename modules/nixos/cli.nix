@@ -27,6 +27,7 @@
       unzip
       scrot
       ranger
+      pkgs-unstable.claude-code
     ];
   };
 }
