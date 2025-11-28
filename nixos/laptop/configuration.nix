@@ -77,7 +77,7 @@
     settings.trusted-users = [ "root" "goran" ];
   };
 
-  networking.hostName = "minipc";
+  networking.hostName = "t14s";
 
   # Enable networking
   networking.networkmanager.enable = true;
