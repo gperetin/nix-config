@@ -206,6 +206,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+   home-manager
    python3
    git
    starship

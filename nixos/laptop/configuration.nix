@@ -202,6 +202,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    home-manager
     git
     python3
     alacritty
