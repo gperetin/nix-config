@@ -136,8 +136,6 @@
     };
   };
 
-  # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -202,7 +200,10 @@
     font-awesome
     material-icons
     noto-fonts
-    (nerdfonts.override { fonts = [ "Hack" "FiraCode" "JetBrainsMono" "Noto" ]; })
+    nerd-fonts.hack
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.noto
   ];
 
   environment.systemPackages = with pkgs; [
