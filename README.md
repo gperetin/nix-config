@@ -18,12 +18,19 @@ This is the process I go through when doing a fresh install of NixOS using this 
     `nixos-generate-config --no-filesystems --root /mnt`
 5. Use the newly generated `hardware-configuration.nix` if there isn't one in the repo for the host we're provisioning.
 6. Make sure the `secrets` repo is checked out at `~/Code/secrets`
+    - Probably easiest to just download as zip and unpack
 7. Install from flake
     ```
     sudo nixos-install --flake .#hostname --impure
+    ```
+8. Copy the `secrets` and `nix-config` folders into `/mnt/home/goran/Code`
+9. Reboot
+10. Connect to wifi using `nmtui`
+11. Set up home-manager
+    ```
     home-manager switch --flake .#username@hostname
     ```
-8. Reboot
+12. Reboot
 
 
 ## Updating the config
