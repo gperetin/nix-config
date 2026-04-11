@@ -6,16 +6,6 @@
   pkgs-unstable,
   ...
 }:
-  let
-    zed-fhs = pkgs.buildFHSUserEnv {
-      name = "zed";
-      targetPkgs = pkgs:
-        with pkgs-unstable; [
-          zed-editor
-        ];
-      runScript = "zeditor";
-    };
-  in
   {
   # You can import other home-manager modules here
   imports = [
@@ -66,7 +56,6 @@
     pkgs-unstable.ruff
     pkgs-unstable.quarto
     tigervnc
-    zed-fhs
     sqlite
     devenv
   ];
@@ -78,6 +67,7 @@
 
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     # extraConfig = ''
     # Host *
     #   IdentityAgent ~/.1password/agent.sock
@@ -98,7 +88,8 @@
   xdg.configFile."nvim/lua/".source = "${inputs.dotfiles}/.config/nvim/lua/";
   xdg.configFile."nvim/init.lua".source = "${inputs.dotfiles}/.config/nvim/init.lua";
 
-  programs.git.delta.enable = true;
+  programs.delta.enable = true;
+  programs.delta.enableGitIntegration = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
