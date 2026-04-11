@@ -76,7 +76,6 @@
     packages = with pkgs; [
       virt-manager
       zoom-us
-      nodePackages.pyright
       vscode-fhs
     ];
   };
@@ -102,7 +101,6 @@
   # Hardware config
   hardware.opengl = {
     enable = true;
-    driSupport = true;
     driSupport32Bit = true;
   };
 
