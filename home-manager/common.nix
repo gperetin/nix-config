@@ -58,12 +58,14 @@
     tigervnc
     sqlite
     devenv
+    ghostty
   ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
   programs.firefox.enable = true;
+  programs.jujutsu.enable = true;
 
   programs.ssh = {
     enable = true;
@@ -87,6 +89,8 @@
 
   xdg.configFile."nvim/lua/".source = "${inputs.dotfiles}/.config/nvim/lua/";
   xdg.configFile."nvim/init.lua".source = "${inputs.dotfiles}/.config/nvim/init.lua";
+
+  xdg.configFile."jj/config.toml".source = "${inputs.dotfiles}/.config/jj/config.toml";
 
   programs.delta.enable = true;
   programs.delta.enableGitIntegration = true;
