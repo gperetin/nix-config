@@ -28,6 +28,7 @@
       scrot
       ranger
       pkgs-unstable.claude-code
+      pkgs-unstable.pi-coding-agent
     ];
   };
 }
