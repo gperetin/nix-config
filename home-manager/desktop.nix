@@ -43,6 +43,7 @@ in {
   xdg.configFile = {
     "i3/config".source = "${inputs.dotfiles}/.config/i3/config-desktop";
     "alacritty/alacritty.toml".source = "${inputs.dotfiles}/.config/alacritty/alacritty.toml.desktop";
+    "ghostty/config".source = "${inputs.dotfiles}/.config/ghostty/config-desktop";
   };
 
   # Override the system desktop entries so GUI launchers use a normal GTK scale.

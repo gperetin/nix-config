@@ -175,6 +175,7 @@
     ripgrep
     fzf
     alacritty
+    ghostty
     direnv
     xcape
     xorg.xmodmap

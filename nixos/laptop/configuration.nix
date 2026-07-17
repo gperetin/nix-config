@@ -203,6 +203,7 @@
     git
     python3
     alacritty
+    ghostty
     brightnessctl
     libinput
     pulseaudio  # for pactl

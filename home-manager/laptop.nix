@@ -26,6 +26,7 @@
   xdg.configFile = {
     "i3/config".source = "${inputs.dotfiles}/.config/i3/config-laptop";
     "alacritty/alacritty.toml".source = "${inputs.dotfiles}/.config/alacritty/alacritty.toml.laptop";
+    "ghostty/config".source = "${inputs.dotfiles}/.config/ghostty/config-laptop";
   };
 
   home.file.".xprofile".text = ''

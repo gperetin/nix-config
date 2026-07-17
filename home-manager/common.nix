@@ -134,6 +134,7 @@
   home.file.".zshrc".source = "${inputs.dotfiles}/.zshrc";
   # xdg.configFile."i3/config".source = "${inputs.dotfiles}/.config/i3/config-laptop";
   # xdg.configFile."alacritty/alacritty.toml".source = "${inputs.dotfiles}/.config/alacritty/alacritty.toml.laptop";
+  # xdg.configFile."ghostty/config".source = "${inputs.dotfiles}/.config/ghostty/config-laptop";
   home.file.".Xmodmap".source = "${inputs.dotfiles}/.Xmodmap";
   # home.file.".xinitrc".source = "${inputs.dotfiles}/.xinitrc";
   home.file.".gitconfig".source = "${inputs.dotfiles}/.gitconfig";

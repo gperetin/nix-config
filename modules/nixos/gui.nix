@@ -12,6 +12,7 @@
   users.users.goran = {
     packages = with pkgs; [
       alacritty
+      ghostty
       pkgs-unstable.obsidian
       pkgs-unstable.dbeaver-bin
       rofi
