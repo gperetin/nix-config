@@ -99,7 +99,11 @@
   systemd.user.startServices = "sd-switch";
 
   programs.alacritty.enable = true;
-  programs.rofi.enable = true;
+  programs.rofi = {
+    enable = true;
+    modes = [ "combi" ];
+    extraConfig.combi-modi = "window,drun,ssh,Sound output:~/bin/rofi_sound.py,:~/bin/rofi_power.sh";
+  };
 
   services.redshift = {
     enable = true;
