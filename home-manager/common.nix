@@ -119,23 +119,16 @@
       alsaSupport = true;
       iwSupport = true;
     };
-    script = ''
-	# Terminate already running bar instances
-# killall -qr polybar
+    # Keep the launcher with the Polybar configurations in the dotfiles repo.
+    script = "${inputs.dotfiles}/.config/polybar/launch.sh";
+  };
 
-# Wait until the processes have been shut down
-while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-
-if type "xrandr"; then
-  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar top &
-  done
-else
-  polybar top &
-fi
-
-echo "Polybar launched..."
-    '';
+  # i3 invokes this path directly.  Manage it so it cannot drift from the
+  # launcher used by the Polybar systemd service.
+  xdg.configFile."polybar/launch.sh" = {
+    source = "${inputs.dotfiles}/.config/polybar/launch.sh";
+    executable = true;
+    force = true;
   };
 
   home.file.".zshrc".source = "${inputs.dotfiles}/.zshrc";

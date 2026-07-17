@@ -68,7 +68,6 @@
   programs.rofi.enable = true;
 
   services.polybar.enable = true;
-  services.polybar.script = "${inputs.dotfiles}/.config/polybar/launch.sh";
   services.polybar.config = "${inputs.dotfiles}/.config/polybar/config-laptop";
 
   xdg.configFile."i3/config".source = "${inputs.dotfiles}/.config/i3/config-laptop";
