@@ -210,6 +210,7 @@
    home-manager
    python3
    git
+   just
    starship
    arandr
    pulseaudio-ctl

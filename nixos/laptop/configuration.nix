@@ -203,6 +203,7 @@
   environment.systemPackages = with pkgs; [
     home-manager
     git
+    just
     python3
     alacritty
     ghostty
