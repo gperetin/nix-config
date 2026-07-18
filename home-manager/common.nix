@@ -44,7 +44,6 @@
     homeDirectory = "/home/goran";
   };
 
-  # Add stuff for your user as you see fit:
   programs.neovim.enable = true;
 
   home.packages = with pkgs; [
@@ -64,7 +63,11 @@
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
-  programs.firefox.enable = true;
+  # Keep the existing Firefox profile location when moving to Home Manager 26.05.
+  programs.firefox = {
+    enable = true;
+    configPath = ".mozilla/firefox";
+  };
   programs.jujutsu.enable = true;
 
   programs.ssh = {
