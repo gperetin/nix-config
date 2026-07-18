@@ -176,6 +176,8 @@
   };
   programs.zsh.enable = true;
 
+  programs.nix-ld.enable = true;
+
   # Password manager
   programs._1password-gui = {
     enable = true;
