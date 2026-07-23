@@ -49,11 +49,24 @@ in {
   };
 
   home.packages = [
+    firefoxOpenUrl
     discordScale1
     obsidianScale1
     onePasswordScale1
     ghosttyScale1
   ];
+
+  # 1Password's “Unlock using system authentication” setting needs a polkit
+  # agent. i3 does not provide one, so without this the desktop app falls back
+  # to its account-password-and-MFA flow for every lock.
+  systemd.user.services.polkit-gnome-authentication-agent = {
+    Unit = {
+      Description = "polkit authentication agent";
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service.ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
 
   xdg.configFile = {
     "i3/config".source = "${inputs.dotfiles}/.config/i3/config-desktop";
