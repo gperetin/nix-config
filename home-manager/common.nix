@@ -54,6 +54,10 @@
     pkgs-unstable.uv
     pkgs-unstable.ruff
     pkgs-unstable.quarto
+    pkgs-unstable.cargo
+    pkgs-unstable.rustc
+    pkgs-unstable.rust-analyzer
+    smile
     tigervnc
     sqlite
     devenv
