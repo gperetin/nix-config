@@ -58,7 +58,11 @@
 
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    # Keep the EFI system partition bounded while retaining rollback options.
+    configurationLimit = 10;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.luks.devices."luks-777a43ef-e518-4737-aaef-d648e58c7c14".device = "/dev/disk/by-uuid/777a43ef-e518-4737-aaef-d648e58c7c14";
 
