@@ -20,9 +20,9 @@
     # Ghostty runs at GDK scale 1, but Firefox belongs on the HiDPI display.
     export GDK_SCALE=2
     export GDK_DPI_SCALE=0.5
-    # Firefox currently runs the default profile in the XDG location. Specify
-    # it explicitly so this invocation is remote-controlled by that instance.
-    profile_root="''${XDG_CONFIG_HOME:-$HOME/.config}/.mozilla/firefox"
+    # Explicitly select the canonical profile so this invocation is
+    # remote-controlled by the running Firefox instance.
+    profile_root="$HOME/.mozilla/firefox"
     profile_path="$(awk -F= '$1 == "Path" { path = $2 } $1 == "Default" && $2 == "1" { print path; exit }' "$profile_root/profiles.ini")"
 
     if [ -n "$profile_path" ]; then
@@ -72,6 +72,20 @@ in {
     "i3/config".source = "${inputs.dotfiles}/.config/i3/config-desktop";
     "alacritty/alacritty.toml".source = "${inputs.dotfiles}/.config/alacritty/alacritty.toml.desktop";
     "ghostty/config".source = "${inputs.dotfiles}/.config/ghostty/config-desktop";
+  };
+
+  # Ensure xdg-open (and therefore Ghostty links) uses the desktop entry
+  # above, rather than Firefox's stale userapp entry that bypasses the
+  # explicit-profile launcher.
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = [ "firefox.desktop" ];
+      "text/xml" = [ "firefox.desktop" ];
+      "application/xhtml+xml" = [ "firefox.desktop" ];
+      "x-scheme-handler/http" = [ "firefox.desktop" ];
+      "x-scheme-handler/https" = [ "firefox.desktop" ];
+    };
   };
 
   # Override the system desktop entries so GUI launchers use a normal GTK scale.
