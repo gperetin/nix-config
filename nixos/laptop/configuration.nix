@@ -26,7 +26,11 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    # Keep the EFI system partition bounded while retaining rollback options.
+    configurationLimit = 10;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelParams = [

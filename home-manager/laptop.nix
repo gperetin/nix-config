@@ -23,6 +23,17 @@
   #   # Install.WantedBy = [ "graphical-session.target" ];
   # };
 
+  # 1Password's “Unlock using system authentication” setting needs a polkit
+  # agent because i3 does not provide one.
+  systemd.user.services.polkit-gnome-authentication-agent = {
+    Unit = {
+      Description = "polkit authentication agent";
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service.ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
+
   xdg.configFile = {
     "i3/config".source = "${inputs.dotfiles}/.config/i3/config-laptop";
     "alacritty/alacritty.toml".source = "${inputs.dotfiles}/.config/alacritty/alacritty.toml.laptop";
