@@ -3,11 +3,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1786785839,
-        "narHash": "sha256-A9I4vHUYKlsJep+i9XBOjdCRBQ2e4UbmBhPGL7M9nj8=",
+        "lastModified": 1786871585,
+        "narHash": "sha256-uQ8VqNu5cvDpgdOHfLGQL/mz8CMXZicvN71Gu894Xog=",
         "owner": "gperetin",
         "repo": "dotfiles",
-        "rev": "1c25e0b7998750c4113c0bd9c18dfc10c24142a5",
+        "rev": "3f2c240b8d99504f78fe8b7bcac89e659cdad8e1",
         "type": "github"
       },
       "original": {
